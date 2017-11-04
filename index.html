@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="assets/js/script.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ title }}</h1>
+      <div class="loading">loading</div>
+      <div class="content">
+        <ul class="articles-list">
+          <li v-for="article in articles">
+            {{ article.author }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html
