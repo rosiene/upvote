@@ -1,21 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://unpkg.com/vue"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment.js"></script>
     <script src="assets/js/script.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Amaranth|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/ico.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   </head>
   <body>
-    <div id="app">
-      <h1>{{ title }}</h1>
+    <div class="content" id="app">
+      <h1 class="header">{{ title }}</h1>
       <div class="loading">loading</div>
-      <div class="content">
-        <ul class="articles-list">
-          <li v-for="article in articles">
-            {{ article.author }}
-          </li>
-        </ul>
-      </div>
+      <ul class="articles-list">
+        <li v-for="article in articles">
+          <div class="content-item">
+            <div class="article-image">
+              <img :src="article.urlToImage" />
+            </div>
+            <div class="article-item">
+              <a :href="article.url" target="_blank"><h1>{{ article.title }}</h1></a>
+              <span>by {{ article.author }} - {{ article.formatPublishedAt }}</span>
+              <p>
+                {{ article.description }}
+              </p>
+            </div>
+            <div class="vote">
+              <div class="vote-content">
+                <div class="score">{{ article.score }}</div>
+                <a herf="#" class="icon-thumbs-up"></a>
+                <a href="#" class="icon-thumbs-down"></a>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="footer">
+      Developed by <a href="https://github.com/rosiene">Rosiene</a> - 2017
     </div>
   </body>
 </html

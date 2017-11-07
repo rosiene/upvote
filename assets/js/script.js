@@ -3,8 +3,7 @@ window.onload = function () {
   var app = new Vue({
     el: '#app',
     data: {
-      title: 'Upvote!',
-
+      title: 'Upvote',
       articles: null,
       error: null
     },
@@ -28,6 +27,10 @@ window.onload = function () {
           if (data.status === 'ok'){
             console.log(data.articles)
             self.articles = data.articles;
+            self.articles.forEach(function(article){
+              article.score = 0;
+              article.formatPublishedAt = moment(article.publishedAt).fromNow();
+            });
           }else{
             error = {status: 'error', message: 'Oops! Something got wrong, try again later.'};
           }
