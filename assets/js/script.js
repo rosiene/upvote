@@ -38,17 +38,23 @@ window.onload = function () {
           error = er.responseJSON;
         });
       },
+      reorder: function(){
+        self = this;
+        self.articles.sort(function(a, b) {
+          return b.score - a.score;
+        })
+      },
       up: function(article){
         article.score++;
         article.author += ' ';
         article.author = article.author.trim();
-        console.log('x');
+        this.reorder();
       },
       down: function(article){
         article.score > 0 ? article.score-- : null;
         article.author += ' ';
         article.author = article.author.trim();
-        console.log('y');
+        this.reorder();
       }
     }
   });
