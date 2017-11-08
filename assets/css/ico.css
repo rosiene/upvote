@@ -33,3 +33,7 @@
 .icon-spinner2:before {
   content: "\e97b";
 }
+
+.icon-thumbs-up , .icon-thumbs-down {
+  color: #444;
+}

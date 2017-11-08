@@ -29,8 +29,8 @@
             <div class="vote">
               <div class="vote-content">
                 <div class="score">{{ article.score }}</div>
-                <a herf="#" class="icon-thumbs-up"></a>
-                <a href="#" class="icon-thumbs-down"></a>
+                <i @click="up(article)" class="icon-thumbs-up"></i>
+                <i @click="down(article)" class="icon-thumbs-down"></i>
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 window.onload = function () {
   var apiURL = 'https://newsapi.org/v1/articles?source=the-next-web&sortBy=latest&apiKey=217bef0fd4ea4115bfa59a9378eff2e5';
-  var app = new Vue({
+  new Vue({
     el: '#app',
     data: {
       title: 'Upvote',
@@ -37,6 +37,18 @@ window.onload = function () {
         }).fail(function(er){
           error = er.responseJSON;
         });
+      },
+      up: function(article){
+        article.score++;
+        article.author += ' ';
+        article.author = article.author.trim();
+        console.log('x');
+      },
+      down: function(article){
+        article.score > 0 ? article.score-- : null;
+        article.author += ' ';
+        article.author = article.author.trim();
+        console.log('y');
       }
     }
   });
