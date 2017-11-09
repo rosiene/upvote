@@ -6,6 +6,7 @@
     <script src="https://momentjs.com/downloads/moment.js"></script>
     <script src="assets/js/script.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Amaranth|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
     <link rel="stylesheet" type="text/css" href="assets/css/ico.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   </head>
@@ -13,8 +14,9 @@
     <div class="content" id="app">
       <h1 class="header">{{ title }}</h1>
       <div class="loading">loading</div>
-      <ul class="articles-list">
-        <li v-for="article in articles">
+      <ul class="articles-list animated">
+        <li v-for="article in articles" class="animated"
+          :class="{fadeOutRight: article.moveOut, fadeInRight: article.moveIn}">
           <div class="content-item">
             <div class="article-image">
               <img :src="article.urlToImage" />
@@ -22,9 +24,6 @@
             <div class="article-item">
               <a :href="article.url" target="_blank"><h1>{{ article.title }}</h1></a>
               <span>by {{ article.author }} - {{ article.formatPublishedAt }}</span>
-              <p>
-                {{ article.description }}
-              </p>
             </div>
             <div class="vote">
               <div class="vote-content">

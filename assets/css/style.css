@@ -44,7 +44,7 @@ ul.articles-list {
   align-items: top;
 }
 .article-item h1 {
-  margin: 0;
+  margin: 0 10px;
   font-size: 24px;
   font-weight: 300;
 }
@@ -57,7 +57,7 @@ ul.articles-list {
 }
 .article-image img {
   margin-right: 10px;
-  width: 360px;
+  width: 240px;
   border: #F5F5F5 solid 1px;
 }
 .vote {
@@ -85,8 +85,4 @@ ul.articles-list {
 .footer {
   text-align: center;
   margin: 30px 0;
-}
-.turn {
-  -webkit-animation: spin 1.5s linear infinite;
-  animation: spin 1.5s linear infinite;
 }

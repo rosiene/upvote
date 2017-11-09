@@ -27,8 +27,11 @@ window.onload = function () {
           if (data.status === 'ok'){
             console.log(data.articles)
             self.articles = data.articles;
-            self.articles.forEach(function(article){
+            self.articles.forEach(function(article, index){
               article.score = 0;
+              article.position = index;
+              article.moveOut = false;
+              article.moveIn = false;
               article.formatPublishedAt = moment(article.publishedAt).fromNow();
             });
           }else{
@@ -38,23 +41,53 @@ window.onload = function () {
           error = er.responseJSON;
         });
       },
-      reorder: function(){
-        self = this;
-        self.articles.sort(function(a, b) {
-          return b.score - a.score;
+      reorder: function(votedArticle){
+        var self = this;
+        votedArticle.moveOut = true;
+        setTimeout(function () {
+          self.articles.sort(function(a, b) {
+            return b.score - a.score;
+          });
+          votedArticle.moveOut = false;
+          votedArticle.moveIn = true;
+          self.articles.forEach(function(article, index){
+            article.position = index;
+          });
+        }, 200);
+      },
+      cleanAnimation: function(article){
+        this.articles.forEach(function(article) {
+          article.moveIn = false;
         })
       },
-      up: function(article){
-        article.score++;
-        article.author += ' ';
-        article.author = article.author.trim();
-        this.reorder();
+      up: function(votedArticle){
+        var self = this;
+        self.cleanAnimation()
+        votedArticle.score++;
+        votedArticle.author += ' ';
+        votedArticle.author = votedArticle.author.trim();
+
+        self.articles.forEach(function(article, index){
+          if (article.score < votedArticle.score && index < votedArticle.position){
+            self.reorder(votedArticle);
+            return;
+          }
+        });
       },
-      down: function(article){
-        article.score > 0 ? article.score-- : null;
-        article.author += ' ';
-        article.author = article.author.trim();
-        this.reorder();
+      down: function(votedArticle){
+        var self = this;
+        if (votedArticle.score > 0){
+          self.cleanAnimation();
+          votedArticle.score--;
+          votedArticle.author += ' ';
+
+          self.articles.forEach(function(article, index){
+            if (article.score > votedArticle.score && index > votedArticle.position){
+              self.reorder(votedArticle);
+              return;
+            }
+          });
+        }
       }
     }
   });
