@@ -26,7 +26,7 @@ h1.header {
   color: #380766;
   font-size: 42px;
   margin: 20px 0;
-  text-shadow: 1px 1px 1px #a1a1a1;
+  text-shadow: 1px 1px 1px #A1A1A1;
 }
 .error-message {
   display: none;
@@ -63,7 +63,8 @@ ul.articles-list {
   color: #a1a1a1;
 }
 .article-image img {
-  width: 240px;
+  max-width: 240px;
+  max-height: 120px;
   border: #F5F5F5 solid 1px;
 }
 .vote {
@@ -91,4 +92,65 @@ ul.articles-list {
 .footer {
   text-align: center;
   margin: 30px 0;
+}
+
+@media only screen and (max-width: 767px) {
+
+  .content {
+    width: 100%;
+  }
+
+  h1.header {
+    margin-left: 10px;
+  }
+
+  .articles-list li {
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0px -3px 10px #A1A1A1;
+  }
+
+  .article-image img {
+    border: none;
+    margin: 10px;
+  }
+
+  .article-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: absolute;
+    min-width: 220px;
+    width: 220px;
+    height: 100px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: none;
+  }
+
+  .article-item h1{
+    margin: 0;
+  }
+
+  .article-item span{
+    color: #444;
+  }
+
+  .article-item h1{
+    font-size: 16px;
+    text-shadow: 0 1px 1px #FFF;
+  }
+
+  .vote-content {
+    box-shadow: none;
+    margin-top: 10px;
+    padding: 0 10px 0 0;
+  }
+  .vote {
+    min-width: 60px;
+    align-self: right;
+  }
+  .vote-content i {
+    margin: 10px;
+    display: block;
+  }
 }
