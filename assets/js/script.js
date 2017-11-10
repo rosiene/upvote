@@ -35,10 +35,12 @@ window.onload = function () {
               article.formatPublishedAt = moment(article.publishedAt).fromNow();
             });
           }else{
-            error = {status: 'error', message: 'Oops! Something got wrong, try again later.'};
+            $('.error-message').show();
+            $(".loading").hide();
           }
         }).fail(function(er){
-          error = er.responseJSON;
+          $('.error-message').show();
+          $(".loading").hide();
         });
       },
       reorder: function(votedArticle){

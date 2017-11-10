@@ -6,6 +6,7 @@
     <script src="https://momentjs.com/downloads/moment.js"></script>
     <script src="assets/js/script.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Amaranth|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/normalize.css">
     <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
     <link rel="stylesheet" type="text/css" href="assets/css/ico.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -13,7 +14,10 @@
   <body>
     <div class="content" id="app">
       <h1 class="header">{{ title }}</h1>
-      <div class="loading">loading</div>
+      <div class="error-message">Oops! Something went wrong. Please try again later.</div>
+      <div class="loading">
+        <i class="icon-spinner2"></i>
+      </div>
       <ul class="articles-list animated">
         <li v-for="article in articles" class="animated"
           :class="{fadeOutRight: article.moveOut, fadeInRight: article.moveIn}">

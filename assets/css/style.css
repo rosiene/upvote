@@ -28,6 +28,9 @@ h1.header {
   margin: 20px 0;
   text-shadow: 1px 1px 1px #a1a1a1;
 }
+.error-message {
+  display: none;
+}
 ul.articles-list {
   list-style-type: none;
   padding: 0;
@@ -37,32 +40,35 @@ ul.articles-list {
   /*border-radius: 10px;*/
   box-shadow: 0px 1px 2px #D1D1D1;
   margin: 20px 0;
-  padding: 16px;
+  padding: 10px;
 }
 .content-item {
   display: flex;
   align-items: top;
 }
-.article-item h1 {
+.article-item {
   margin: 0 10px;
+  min-width: 576px;
+}
+.article-item h1 {
+  margin: 0;
   font-size: 24px;
   font-weight: 300;
 }
 .article-item span {
   display: block;
-  margin: 6px 0;
-  font-size: 10px;
+  margin: 8px 0;
+  font-size: 12px;
   font-weight: 400;
   color: #a1a1a1;
 }
 .article-image img {
-  margin-right: 10px;
   width: 240px;
   border: #F5F5F5 solid 1px;
 }
 .vote {
   min-width: 100px;
-  margin: 0 0 10px 10px;
+  align-self: right;
 }
 .vote-content {
   box-shadow: 0px -1px 2px #D1D1D1;
